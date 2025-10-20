@@ -11,7 +11,8 @@ class User(AbstractUser):
     )
     profile_image = models.ImageField(upload_to='instagram/profiles/',blank=True,null=True)
     full_name = models.CharField(max_length=128,blank=True,null=True)
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     def get_tokens(self):
         if not self.is_active:
             raise AuthenticationFailed("User is not active")
