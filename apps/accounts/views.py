@@ -21,7 +21,7 @@ class UserLoginAPIView(generics.GenericAPIView):
         if serializer.is_valid():
             user = serializer.validated_data['user']
             tokens = user.get_tokens()
-            return Response({"message": "Login successful", "tokens": tokens}, status=status.HTTP_200_OK)
+            return Response({"message": "Login successful.", "tokens": tokens}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
